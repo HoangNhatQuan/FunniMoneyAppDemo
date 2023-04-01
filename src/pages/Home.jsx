@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Name from '../../public/logo-name.png';
 import { useForm } from 'react-hook-form';
 import {
     Avatar,
@@ -264,7 +265,7 @@ const SecondVerification = () => {
                                 label="Số người cần được nuôi dưỡng?"
                                 variant="outlined"
                                 placeholder="Số người cần được nuôi dưỡng?"
-                                helperText="Nhập đúng số người.VD: 3 người thì nhập 3"
+                                helperText="Nhập đúng số người.VD: 3 người thì nhập 3. Nếu tự nuôi bản thân thì nhập 1"
                                 InputProps={{
                                     endAdornment: <InputAdornment position="start">Người</InputAdornment>,
                                 }}
@@ -423,9 +424,7 @@ const Home = () => {
                 }}
             >
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Typography variant="h4" color="inherit" noWrap>
-                        FunniMoney
-                    </Typography>
+                    <img src={Name} alt="" width={200} />
                     <Button color="error" onClick={handleLogout}>
                         Logout
                     </Button>
