@@ -23,9 +23,9 @@ export default function Login() {
 
     return (
         <>
-            <h1>Welcom to FunniMoney</h1>
+            <h1>Chào mừng đến FunniMoney</h1>
             <Button variant="outlined" onClick={handleLoginWithGoogle}>
-                Login with Google
+                Đăng nhập bằng Gmail Google
             </Button>
         </>
     );

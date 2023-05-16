@@ -22,7 +22,7 @@ import {
 } from '@mui/material';
 import { AuthContext } from '../context/AuthProvider';
 import { useContext } from 'react';
-
+import PropTypes from 'prop-types';
 import { makeStyles } from "tss-react/mui";
 import {
     Controller,
@@ -30,11 +30,15 @@ import {
     useFormContext,
 } from "react-hook-form";
 
+import { NumericFormat } from 'react-number-format';
+
 const useStyles = makeStyles((theme) => ({
     button: {
         marginRight: theme.spacing(1),
     },
 }));
+
+
 
 function getSteps() {
     return [
@@ -162,8 +166,41 @@ const FirstVerification = () => {
         </>
     );
 };
+
+const NumericFormatCustom = React.forwardRef(function NumericFormatCustom(
+    props,
+    ref,
+) {
+    const { onChange, ...other } = props;
+
+    return (
+        <NumericFormat
+            {...other}
+            getInputRef={ref}
+            onValueChange={(values) => {
+                onChange({
+                    target: {
+                        name: props.name,
+                        value: values.value,
+                    },
+                });
+            }}
+            thousandSeparator
+            valueIsNumericString
+        />
+    );
+});
+
+NumericFormatCustom.propTypes = {
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+};
+
 const SecondVerification = () => {
     const { control } = useFormContext();
+    const [values, setValues] = React.useState({
+        numberformat: '1320',
+      });
     return (
         <>
             <Grid container spacing={3}>
@@ -180,7 +217,9 @@ const SecondVerification = () => {
                                 fullWidth
                                 InputProps={{
                                     endAdornment: <InputAdornment position="start">VNĐ</InputAdornment>,
+                                    inputComponent: NumericFormatCustom,
                                 }}
+                                
                                 margin="normal"
                                 {...field}
                             />
@@ -202,6 +241,7 @@ const SecondVerification = () => {
                                 placeholder='Thu nhập của cả  gia đình trên năm?'
                                 InputProps={{
                                     endAdornment: <InputAdornment position="start">VNĐ</InputAdornment>,
+                                    inputComponent: NumericFormatCustom,
                                 }}
                                 margin="normal"
                                 {...field}
