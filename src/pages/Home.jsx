@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
     return [
-        "First Verification",
-        "Second Verification",
+        "Bước 1",
+        "Bước 2",
     ];
 }
 const FirstVerification = () => {
@@ -62,7 +62,6 @@ const FirstVerification = () => {
                                 variant="outlined"
                                 placeholder="Tuổi của bạn là bao nhiêu?"
                                 fullWidth
-                                helperText="VD: Nhập 20 nếu bạn năm nay 20 tuổi."
                                 margin="normal"
                                 {...field}
                             />
@@ -103,6 +102,8 @@ const FirstVerification = () => {
                                 variant="outlined"
                                 placeholder="Nghề nghiệp hiện nay của bạn là gì?"
                                 fullWidth
+                                helperText="Việc lựa chọn dựa theo ngành nghề hiện tại của bạn. 
+                                            VD: Bạn làm tư vấn viên trong lĩnh vực Ngân hàng thì bạn sẽ thuộc nhóm Chuyên môn/Kỹ thuật "
                                 margin="normal"
                                 select
                                 {...field}
@@ -212,7 +213,7 @@ const SecondVerification = () => {
                             <TextField
                                 id="incomeOfaYear"
                                 label="Thu nhập cá nhân hằng năm?"
-                                helperText="Nhập đúng số tiền.VD: Thu nhập là 10 triệu thì nhập 10000000"
+                                helperText=" Nhập đúng số tiền. VD: Thu nhập là 10 triệu thì nhập 10000000"
                                 variant="outlined"
                                 fullWidth
                                 InputProps={{
@@ -235,7 +236,7 @@ const SecondVerification = () => {
                             <TextField
                                 id="yourIncomeFamilyOfaYear"
                                 label="Thu nhập của cả  gia đình trên năm?"
-                                helperText="Nhập đúng số tiền.VD: Thu nhập là 10 triệu thì nhập 10000000"
+                                helperText="Nhập đúng số tiền. VD: Thu nhập là 10 triệu thì nhập 10000000"
                                 variant="outlined"
                                 fullWidth
                                 placeholder='Thu nhập của cả  gia đình trên năm?'
@@ -302,9 +303,9 @@ const SecondVerification = () => {
                         render={({ field }) => (
                             <TextField
                                 id="peopleManage"
-                                label="Số người cần được nuôi dưỡng?"
+                                label="Số người ăn theo (Số người cần chăm sóc) "
                                 variant="outlined"
-                                placeholder="Số người cần được nuôi dưỡng?"
+                                placeholder="Số người ăn theo (Số người cần chăm sóc)"
                                 helperText="Nhập đúng số người.VD: 3 người thì nhập 3. Nếu tự nuôi bản thân thì nhập 1"
                                 InputProps={{
                                     endAdornment: <InputAdornment position="start">Người</InputAdornment>,
@@ -466,14 +467,14 @@ const Home = () => {
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <img src={Name} alt="" width={200} />
                     <Button color="error" onClick={handleLogout}>
-                        Logout
+                        ĐĂNG XUẤT
                     </Button>
                 </Toolbar>
             </AppBar>
             <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
                 <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 5, md: 3 }, width: '500px' }}>
                     <Typography component="h1" variant="h4" align="center" marginBottom="40px" marginTop="20px">
-                        Credit score system
+                        Hệ thống chấm điểm tín dụng FunniMoney
                     </Typography>
 
 
@@ -500,7 +501,7 @@ const Home = () => {
                                 sx={{ width: 50, height: 50, alignItems: 'center', justifyContent: 'center', marginLeft: 'auto', marginRight: 'auto' }}
                             />
                             <Typography variant="h6" align="center" sx={{ marginTop: '20px' }}>
-                                Thank you, {displayName}, for completing the verification.
+                                Cảm ơn, {displayName}, đã hoàn tất quá trình xét duyệt hồ sơ vay tín dụng.
                             </Typography>
                             <Typography variant="h6" align="left" sx={{ marginTop: '30px' }}>
                                 Số điểm của bạn theo hệ thống chúng tôi tính toán được là <span style={{ fontWeight: '700' }}>{score}</span>.
@@ -509,7 +510,7 @@ const Home = () => {
                                 Bạn đang ở mức tín dụng <span style={{ fontWeight: '700' }}>{level}</span>.
                             </Typography>
                             <Typography variant="h6" align="left">
-                                Kết quả về khoản vay BNPL của bạn thì chúng tôi sẽ kiểm duyệt và thông báo qua mail của bạn là <span style={{ fontWeight: '700' }}>{email}</span>
+                            Kết quả về khoản vay sẽ được FunniMoney kiểm duyệt trong vòng 24h và thông báo qua email đăng ký <span style={{ fontWeight: '700' }}>{email}</span>
                             </Typography>
                         </div>
 
@@ -521,7 +522,7 @@ const Home = () => {
                                 sx={{ width: 40, height: 40, alignItems: 'center', justifyContent: 'center', marginLeft: 'auto', marginRight: 'auto' }}
                             />
                             <Typography component="h3" variant="h5" align="center" marginBottom="30px" marginTop="10px">
-                                Hello, {displayName}
+                                Xin chào, {displayName}
                             </Typography>
                             <FormProvider {...methods}>
                                 <form onSubmit={methods.handleSubmit(handleNext)}>
@@ -551,7 +552,7 @@ const Home = () => {
                                             onClick={handleBack}
                                             sx={{ marginRight: '10px' }}
                                         >
-                                            back
+                                            Quay lại
                                         </Button>
                                         <Button
                                             className={classes.button}
@@ -560,7 +561,7 @@ const Home = () => {
                                             type="submit"
                                             disabled={activeStep === steps.length - 1 ? disabledbtn : false}
                                         >
-                                            {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                                            {activeStep === steps.length - 1 ? "Hoàn thành" : "Tiếp theo"}
                                         </Button>
                                     </Box>
                                 </form>
