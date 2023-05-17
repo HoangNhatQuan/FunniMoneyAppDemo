@@ -6,7 +6,7 @@ Details: https://istartup.lchdautu.com/?fbclid=IwAR1qN4Kk77zRo3_ltf3KEFR1vdde5b5
 
 App demo CREDIT SCORE SYSTEM (HỆ THỐNG CHẤM ĐIỂM TÍN DỤNG)
 
-Deploy: https://funnimoney.netlify.app/
+Deploy: [https://funnimoney.netlify.app/](https://funnimoney.netlify.app/)
 
 AWARDS: Top 15 in I-StartUp 2023
 
